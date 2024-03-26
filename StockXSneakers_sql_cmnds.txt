@@ -1,0 +1,196 @@
+-- 1.total sales of each brand 
+ 
+SELECT 
+    Brand, COUNT(*) AS Total_Sales
+FROM
+    stockx_data
+GROUP BY brand;
+
+-- two brands 
+-- There are 99,956 total sales in the data set
+-- 27,794 Off-White total sales, and 72,162 Yeezy total sales.
+
+
+-- 2. average Sale Price for each Brand 
+ 
+SELECT 
+    brand, AVG(new_Sale_Price) AS Average_Sale_Price
+FROM
+    stockx_data
+GROUP BY brand
+ORDER BY Average_Sale_Price DESC;
+
+ /* The purpose of this query is to retrieve a list of brands and their corresponding average
+ sale prices, sorted in descending order by the average sale price.This can be helpful for analyzing 
+ which brands have the highest average sale prices.Off- White has highest avg sale price*/
+ 
+ 
+ -- 3 a. maximum sale price for each brand  
+
+SELECT 
+    brand, MAX(new_sale_price) AS Max_Sale_Price
+FROM
+    stockx_data
+GROUP BY brand;
+
+/* This query is designed to retrieve the maximum sale price for each brand.This query is useful for 
+identifying which brand has the highest maximum sale price among the products in the dataset.*/ 
+
+-- 3 b Minimum Sale Price for each Brand 
+
+SELECT 
+    brand, MIN(new_sale_price) AS Min_Sale_Price
+FROM
+    stockx_data
+GROUP BY brand;
+
+/* This  query is designed to retrieve the minimum sale price for each brand.This query is useful for
+ identifying which brand has the minimum sale price among the products in the dataset.*/ 
+ 
+ -- 4 List the top 3 most sold sneakers of each brand
+  
+WITH Sneakers_Rank AS (   
+   SELECT
+        `sneaker name`,brand,COUNT(*) AS SalesCount,
+        ROW_NUMBER() OVER (PARTITION BY brand ORDER BY COUNT(*) DESC) AS Sales_count_rank
+    FROM
+        stockx_data
+    GROUP BY
+        brand,
+        `sneaker name`)
+     SELECT *
+FROM
+    Sneakers_Rank
+WHERE
+    Sales_count_rank <= 3;
+    
+    
+/* the query calculates the sales count rank for each sneaker within its brand and then filters the results 
+to show only the top 3 sneakers in terms of sales count for each brand.  It's a useful query for finding 
+the most expensive sneakers for each brand in this dataset.*/
+
+
+-- 5. top 5 popular shoe size
+
+with Brand_shoe_size as (SELECT 
+    brand,`shoe size`, COUNT(*) AS TOTAL_QTY,ROW_NUMBER() OVER (PARTITION BY Brand ORDER BY COUNT(*) DESC) AS Rownumber
+FROM
+    stockx_data
+GROUP BY brand, `shoe size`)
+ SELECT * 
+        FROM Brand_shoe_size
+        WHERE Rownumber <= 5 ;
+        
+
+/*  It's useful for analyzing which shoe sizes (each brand) are the most popular in the dataset.*/
+
+-- 6. release date trend (Analysis)
+
+SELECT 
+    YEAR(new_release_date), brand, COUNT(*) AS TOTAL_QTY
+FROM
+    stockx_data
+WHERE
+    brand = ' Yeezy'
+GROUP BY YEAR(new_release_date)
+ORDER BY YEAR(new_Release_Date) ASC;
+
+/*The result would show the year, brand ('Yeezy'), and the total count of records for each year that 
+'Yeezy' products were released in the dataset. It essentially provides a summary of the number of "Yeezy" items
+ released per year.*/
+
+SELECT 
+    YEAR(new_release_date), brand, COUNT(*) AS TOTAL_QTY
+FROM
+    stockx_data
+WHERE
+    brand = 'off-white'
+GROUP BY YEAR(new_release_date)
+ORDER BY YEAR(new_Release_Date) ASC;
+
+/* the result will show the year, the brand ("off-white"), and the total count of items
+ released by "off-white" in each year. It essentially provides a summary of the number of "off-white" items
+ released per year.*/
+ 
+ -- 7. Annual order 
+
+SELECT 
+    YEAR(new_order_date), brand, COUNT(*) AS TOTAL_QTY
+FROM
+    stockx_data
+GROUP BY brand , YEAR(new_order_date);
+
+
+/* analyzing the distribution of orders by brand over different years.*/
+
+
+-- 8. best/worst profit margins 
+
+
+SELECT 
+    brand,
+    ((SUM(`new_Sale_Price`) - SUM(`new_Retail_Price`)) / SUM(`new_Sale_Price`) * 100) 
+    AS Total_Profit_Margin
+FROM
+    stockx_data
+GROUP BY brand
+ORDER BY Total_Profit_Margin DESC;
+
+/* this query retrieves data from the stockx_data table, calculates the profit margin 
+for each brand, and then presents the results in descending order of profit margin. It's 
+useful for identifying which brands have the highest profit margins in the dataset.*/
+
+
+-- 9. top 5 region with highest order 
+
+WITH Brand_region_order AS (
+SELECT
+    Brand,
+`Buyer Region`,
+    COUNT(*) as TOTAL_ORDER,
+        ROW_NUMBER() OVER (PARTITION BY Brand ORDER BY COUNT(*) DESC) AS Rownumber
+    FROM
+        stockx_data
+        GROUP BY brand,`Buyer Region`)
+        SELECT * 
+        FROM Brand_region_order
+        WHERE Rownumber <= 5 ;
+        
+/* this query will be a list of rows that include the Brand, Buyer Region, Total Order, and the Rownumber
+ of each region within each brand, but limited to only the top 5 regions for each brand.This insight can 
+ help companies allocate resources,marketing efforts, and inventory to these high-performing regions to 
+ maximize sales and profitability.*/
+ 
+ 
+ -- 10. average sale prices across different time periods
+ 
+ SELECT brand,
+    month(new_Order_Date) AS month, monthname(new_Order_Date) AS monthname,
+    AVG(new_sale_price) AS average_sale_price
+FROM
+    stockx_data
+   
+GROUP BY
+    month,monthname, brand
+ORDER BY
+     brand, month asc; 
+ 
+ 
+ /* Understanding these patterns can help these brands optimize their pricing, marketing,
+ and inventory management strategies to maximize revenue and profitability.*/
+ 
+ -- 11. Total profit margin for last quarter of the year (2017 Vs 2018)
+
+SELECT brand,
+    YEAR(new_Order_Date) AS YEAR,
+    MONTHNAME(new_Order_Date) AS MONTH,
+    ((SUM(`new_Sale_Price`) - SUM(`new_Retail_Price`)) / SUM(`new_Sale_Price`) * 100) AS Total_Profit_Margin
+FROM
+    stockx_data
+WHERE
+    MONTHNAME(new_Order_Date) IN ('October' , 'November', 'December')
+GROUP BY brand,YEAR(new_Order_Date) , MONTHNAME(new_Order_Date)
+ORDER BY 1,2,3 DESC;
+
+/*  the query retrieves data from the "stockx_data" table, calculates the total profit margin for different brands, grouped by year and month, and filters the results to 
+include only orders placed in October, November, and December. The results are then sorted first by brand, then by year, and finally by month in descending order.*/
