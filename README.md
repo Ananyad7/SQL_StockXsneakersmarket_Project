@@ -23,7 +23,7 @@ Average sale price of Off-White is  $671.48
 Average sale price of Yeezy  is  $360.03
 
 # Maximum and Minimum sale prices
-[image](https://github.com/Ananyad7/SQL_StockXsneakersmarket_Project/assets/164981636/b5fd981b-8e98-4b39-9934-6e29f1fae908)
+![image](https://github.com/Ananyad7/SQL_StockXsneakersmarket_Project/assets/164981636/b5fd981b-8e98-4b39-9934-6e29f1fae908)
 
 The maximum and minimum sale prices for Yeezy are $2300 and $186, respectively.
 
@@ -86,14 +86,14 @@ Yeezy : In 2017, Yeezy's profit margin declined from 67.76% in October to 56.51%
 Off-white : In 2017, Off-White consistently had strong profit margins in the last quarter of the year, with October at 84.83%, November at 74.27%, and December at 72.99%. In 2018, they maintained relatively high profit margins, starting at 76.82% in October, decreasing to 71.90% in November, and 62.04% in December, still outperforming Yeezy.
 
 # Observations
-> Yeezy has higher total sales than Off-White; however, Off-White products typically have a higher average sale price than Yeezy products, suggesting that Off-White items are generally more expensive in the market.
-> Yeezy product releases have experienced significant growth from 2015 to 2017, followed by a decrease in 2018. Off-White experienced a notable fluctuation in its product release strategy over the three-year period.
-> In 2018, there was a significant uptick in orders for both Yeezy and Off-White items. However, in the following year, 2019, orders for both brands decreased. Notably, in 2017, Yeezy received 10,731 orders, a substantially higher number than Off-White's 2,562 orders.
-> To maximize sales and inventory management, the brands should focus on popular sizes such as size 10, and consider targeted marketing and stocking strategies for these sizes.
-> Off-White has a higher profit margin than Yeezy, possibly because of higher prices, lower production costs, or better cost management. Conversely, Yeezy might have lower profit margins due to higher production or operational costs.
-> California and New York seem to be the top regions for both brands, with California having the highest total orders for both Yeezy and Off-White products, and the brands should continue to focus their marketing and distribution efforts in this area. 
-> Yeezy and Off-White both show seasonal price trends. Off-White consistently having higher average sale prices indicating its premium image. Yeezy's lowest prices occur in July, suggesting a chance for promotions to boost sales then.
-> Off-White had a more favorable profit margin performance compared to Yeezy during the specified time frame. Off-White also saw fluctuations in profit margin, its decline from 2017 to 2018 was less pronounced compared to Yeezy.
+1. Yeezy has higher total sales than Off-White; however, Off-White products typically have a higher average sale price than Yeezy products, suggesting that Off-White items are generally more expensive in the market.
+2. Yeezy product releases have experienced significant growth from 2015 to 2017, followed by a decrease in 2018. Off-White experienced a notable fluctuation in its product release strategy over the three-year period.
+3. In 2018, there was a significant uptick in orders for both Yeezy and Off-White items. However, in the following year, 2019, orders for both brands decreased. Notably, in 2017, Yeezy received 10,731 orders, a substantially higher number than Off-White's 2,562 orders.
+4. To maximize sales and inventory management, the brands should focus on popular sizes such as size 10, and consider targeted marketing and stocking strategies for these sizes.
+5. Off-White has a higher profit margin than Yeezy, possibly because of higher prices, lower production costs, or better cost management. Conversely, Yeezy might have lower profit margins due to higher production or operational costs.
+6. California and New York seem to be the top regions for both brands, with California having the highest total orders for both Yeezy and Off-White products, and the brands should continue to focus their marketing and distribution efforts in this area. 
+7. Yeezy and Off-White both show seasonal price trends. Off-White consistently having higher average sale prices indicating its premium image. Yeezy's lowest prices occur in July, suggesting a chance for promotions to boost sales then.
+8. Off-White had a more favorable profit margin performance compared to Yeezy during the specified time frame. Off-White also saw fluctuations in profit margin, its decline from 2017 to 2018 was less pronounced compared to Yeezy.
 
 
 
