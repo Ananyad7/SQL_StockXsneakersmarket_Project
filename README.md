@@ -95,8 +95,7 @@ Off-white : In 2017, Off-White consistently had strong profit margins in the las
 7. Yeezy and Off-White both show seasonal price trends. Off-White consistently having higher average sale prices indicating its premium image. Yeezy's lowest prices occur in July, suggesting a chance for promotions to boost sales then.
 8. Off-White had a more favorable profit margin performance compared to Yeezy during the specified time frame. Off-White also saw fluctuations in profit margin, its decline from 2017 to 2018 was less pronounced compared to Yeezy.
 
-
-
+Linkedin link: https://www.linkedin.com/posts/7ananyadas_stockxyeezyxoffwhiteanalysis-activity-7143712339760930816-0V3g?utm_source=share&utm_medium=member_desktop
 
 
 
