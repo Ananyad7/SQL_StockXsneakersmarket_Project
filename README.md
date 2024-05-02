@@ -11,7 +11,6 @@ This dataset comprises a single file of sales data sourced from StockX. It conta
 The objective of this analysis is to gain insights into the sales trends and buyer preferences for Yeezy sneakers and off-white sneakers during the specified time period. By examining factors such as order date, sale price, retail price(cost), release date, shoe size, and buyer region, we aim to identify key patterns, pricing strategies, and regional variations that can inform marketing and sales strategies for Yeezy and Off-White sneakers in the future.
 
 # Total sales 
-
 ![image](https://github.com/Ananyad7/SQL_StockXsneakersmarket_Project/assets/164981636/434ea9c6-af77-4208-8393-dc5a5bbb985e)
 
 72,162 Yeezy sales
